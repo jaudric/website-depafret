@@ -1,0 +1,3 @@
+Sitemap: https://www.depa-fret.fr/service/sitemap.xml
+User-agent: *
+Disallow:
