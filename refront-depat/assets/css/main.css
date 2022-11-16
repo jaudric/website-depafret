@@ -1320,7 +1320,7 @@ section {
       rgba(var(--color-black-rgb), 0.4),
       rgba(var(--color-black-rgb), 0.7)
     ),
-    url("../img/see-spot.jpg") center center;
+    url("../img/imageDepa/spot.jpg") center center;
   background-size: cover;
 }
 
@@ -3242,7 +3242,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #47b2e4;
+  background: #0b6fb6;
   color: #fff;
   transition: 0.3s;
   border-radius: 50px;
@@ -3291,7 +3291,7 @@ section {
 }
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #47b2e4;
+  color: #0b6fb6;
   font-size: 18px;
   line-height: 1;
 }
@@ -3311,12 +3311,12 @@ section {
 }
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #47b2e4;
+  color: #0b6fb6;
 }
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #47b2e4;
+  background: #0b6fb6;
   color: #fff;
   line-height: 1;
   padding: 8px 0;

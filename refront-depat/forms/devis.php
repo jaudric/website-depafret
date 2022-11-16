@@ -1,9 +1,9 @@
 <?php
- require "vendor/autoload.php";
+ require 'vendor/autoload.php';
  use PHPMailer\PHPMailer\PHPMailer;
  use PHPMailer\PHPMailer\SMTP;
 
- if (!empty($_POST)){
+ if (!empty($_POST))
     $from = $_POST['email'];
     $name = $_POST['name'];
     $depart = $_POST['depart'];
@@ -16,35 +16,60 @@
     $mail = new PHPMailer(true);
 	$mail->isSMTP();
     $mail->IsHTML(true);
-    $mail->CharSet="utf-8";
+    $mail->CharSet='utf-8';
 	$mail->SMTPAuth = true;
 
-	$mail->Host = "smtp.ionos.fr";
+	$mail->Host = 'smtp.ionos.fr';
 	//$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 	$mail->port = 587;
 	$mail->Username = 'contact@depa-fret.fr';
 	$mail->Password = 'Lejourdegloire1';
 
 	$mail->SetFrom($from, $name);
-	$mail->addAddress("contact@depa-fret.fr", "Devis Depa");
+	$mail->addAddress('contact@depa-fret.fr', 'Devis Depa');
 	$logo = '../assets/img/img/depa_logo_transparent.png';
     $link = '#';
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Depart:</strong> {$depart}</td>";
-	$body .= "<td style='border:none;'><strong>Arrive:</strong> {$arrive}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$description}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
+$body = "<html> 
+    <head> 
+        <title>Depa Fret | Devis</title> 
+    </head> 
+    <body> 
+        <h1 style='text-align: center;'>Demande de devis</h1> 
+        <table cellspacing='0' style='border: 2px dashed #0b6fb6; width: 700px; text-align: center; margin: 0 auto; padding: 15px;'> 
+            <tr> 
+                <th>Nom:</th><td>".$name."</td> 
+            </tr>
+            <tr style='background-color: #e0e0e0;'> 
+                <th>Email:</th><td>".$from."</td> 
+            </tr>
+            <tr> 
+                <th>Téléphone:</th><td>".$phone."</td> 
+            </tr>
+            <tr style='background-color: #e0e0e0;'>
+                <th>Adresse de départ:</th>
+                <td>".$depart."</td> 
+            </tr> 
+            <tr>
+                <th>Adresse de livraison:</th>
+                <td>".$arrive."</td> 
+            </tr> 
+            <tr style='background-color: #e0e0e0;'>
+                <th>Poids (kg):</th>
+                <td>".$weight."</td> 
+            </tr> 
+            <tr style='background-color: #e0e0e0;'>
+                <th>Dimensions (Cm):</th>
+                <td>".$dimensions."</td> 
+            </tr> 
+        </table> 
+        <p style=' width: 700px; text-align: center; margin: 0 auto; padding: 15px;'>
+            ".$description."
+        </p>
+    </body> 
+    </html>";
 
-	$mail->Subject =  "Demande de devis";
+	$mail->Subject =  'Demande de devis';
 	$mail->Body = $body;
 	$mail->Send();
 	
-	header("Location: ../sent.html");
-}
+	header('Location: ../sent.html');
